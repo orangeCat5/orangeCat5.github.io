@@ -47,7 +47,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="../../../../../../1.jpg" class="js-avatar">
+			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -59,25 +59,29 @@
 			
 				<li><a href="/">主页</a></li>
 	        
+				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">目录</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
     			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">自我介绍</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/orangeCat5/orangeCat5.github.io" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -101,7 +105,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="../../../../../../1.jpg" class="js-avatar">
+				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -111,12 +115,14 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/orangeCat5/orangeCat5.github.io" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -131,7 +137,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 100%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -179,7 +187,7 @@
 <h4 id="生成SSh放到GitHub上"><a href="#生成SSh放到GitHub上" class="headerlink" title="生成SSh放到GitHub上"></a>生成SSh放到GitHub上</h4><p>git bash打开命令行键入<br>git config –global user.name “yourname”<br>git config –global user.name “youremail”<br>这两条里的yourname需要输入你的github的用户名 youremail需要输入你的github的邮箱</p>
 <p>检查是否正确键入<br>git config user.name<br>git config user.email</p>
 <p>键入ssh-keygen -t rsa -C “youremail”<br>成功会有提醒<br>此时进入此电脑<br>此电脑&gt;本地磁盘C&gt;用户&gt;（正在使用的用户名）&gt;.ssh  找到id_ras.pub 这是你的刚刚生成的公钥<br>需要将这个公钥添加到github上，打开这个文件，复制里面的内容<br>返回Github 设置setting 找到 SSH keys的选项 点击New SSH key，粘贴刚刚复制的内容 点击Add SHH key</p>
-<h4 id="部署hexo博客到Github"><a href="#部署hexo博客到Github" class="headerlink" title="部署hexo博客到Github"></a>部署hexo博客到Github</h4><p>找到hexo博客文件 找到_config.yml 文件 打开 直接拉到最下面<br>找到，并修改为下列状态<br>deploy:<br>  type: git<br>  repository: <a href="mailto:&#103;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;">&#103;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;</a>:orangeCat5&#x2F;orangeCat5.github.io.git  &#x2F;&#x2F;这填写自己的Github地址<br>  branch: master</p>
+<h4 id="部署hexo博客到Github"><a href="#部署hexo博客到Github" class="headerlink" title="部署hexo博客到Github"></a>部署hexo博客到Github</h4><p>找到hexo博客文件 找到_config.yml 文件 打开 直接拉到最下面<br>找到，并修改为下列状态<br>deploy:<br>  type: git<br>  repository: <a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>:orangeCat5&#x2F;orangeCat5.github.io.git  &#x2F;&#x2F;这填写自己的Github地址<br>  branch: master</p>
 <p>保存后退出</p>
 <p>再次点击git bash 打开命令行<br>键入 npm install hexo-deployer-git –save<br>后键入<br>hexo clean<br>hexo generate<br>hexo deploy<br>下两个可以缩写为 hexo g  hexo d<br>可能需要输入Github的用户名和密码</p>
 <p>成功后即可在 yourname.github.io 看到你的博客 例如我的 orangeCat5.github.io</p>
@@ -189,6 +197,27 @@
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -259,8 +288,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2022/03/23/6-VUE-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vue-1</div>
+    <a href="/2022/03/23/6-VUE-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue-2</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -279,19 +308,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo%E7%AE%80%E4%BB%8B%E4%BB%A5%E5%8F%8A%E6%95%99%E7%A8%8B%EF%BC%88%E9%9D%A2%E5%90%91%E6%83%B3%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E7%99%BD%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">hexo简介以及教程（面向想搭建自己个人博客的小白）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Git"><span class="toc-number">1.1.</span> <span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="toc-number">1.2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="toc-number">1.3.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAGitHub%E4%BB%93%E5%BA%93"><span class="toc-number">1.4.</span> <span class="toc-text">创建GitHub仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90SSh%E6%94%BE%E5%88%B0GitHub%E4%B8%8A"><span class="toc-number">1.5.</span> <span class="toc-text">生成SSh放到GitHub上</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E5%88%B0Github"><span class="toc-number">1.6.</span> <span class="toc-text">部署hexo博客到Github</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8hexo%E5%91%BD%E4%BB%A4"><span class="toc-number">1.7.</span> <span class="toc-text">常用hexo命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E5%90%8E"><span class="toc-number">1.8.</span> <span class="toc-text">搭建后</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
@@ -357,6 +373,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
+      
+      
     
       
       
@@ -368,13 +386,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">目录</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">自我介绍</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -438,11 +458,43 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;h1&gt;姓名：李少华&lt;br&gt; 常州大学  计算机科学与技术（本科）&lt;br&gt; 求职意向：前端开发工程师 &lt;br&gt; 主修课程：问题求解与程序设计（C 语言）、面向对象程序设计（java）、 操作系统及 Linux 应用、数据库原理及应用、数据结构与 算法分析、计算机组成与体系结构、嵌入式系统及应用 &lt;br&gt; 联系方式：18177251083&lt;/h1&gt;</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
   	  	
     	</section>
     
