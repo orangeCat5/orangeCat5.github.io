@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>橘猫的技术博客</title>
+  <title>Vue-3 | 橘猫的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jQuery 发送 AJAX 请求                      jQuery发送AJAX请求         GET         POST         通用型方法ajax                   $(&#39;button&#39;).eq(0).click(function () {             $.get(&#39;http:">
-<meta property="og:type" content="website">
-<meta property="og:title" content="橘猫的技术博客">
-<meta property="og:url" content="http://example.com/AJAX/client.html">
+  <meta name="description" content="Vue3.0新特性Vue3.0的设计目标可以概括为体积更小、速度更快、加强TypeScript支持、加强API设计一致性、提高自身可维护性、开放更多底层功能。 描述从Vue2到Vue3在一些比较重要的方面的详细对比。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue-3">
+<meta property="og:url" content="http://example.com/2022/03/23/6-VUE-3/index.html">
 <meta property="og:site_name" content="橘猫的技术博客">
-<meta property="og:description" content="jQuery 发送 AJAX 请求                      jQuery发送AJAX请求         GET         POST         通用型方法ajax                   $(&#39;button&#39;).eq(0).click(function () {             $.get(&#39;http:">
+<meta property="og:description" content="Vue3.0新特性Vue3.0的设计目标可以概括为体积更小、速度更快、加强TypeScript支持、加强API设计一致性、提高自身可维护性、开放更多底层功能。 描述从Vue2到Vue3在一些比较重要的方面的详细对比。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-03-27T02:49:59.896Z">
-<meta property="article:modified_time" content="2022-03-27T02:49:59.896Z">
+<meta property="article:published_time" content="2022-03-23T06:40:12.000Z">
+<meta property="article:modified_time" content="2022-03-30T06:54:03.151Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -146,68 +146,113 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-6-VUE-3" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue-3
+    </h1>
+  
+
+        
+        <a href="/2022/03/23/6-VUE-3/" class="archive-article-date">
+  	<time datetime="2022-03-23T06:40:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-23</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html>
-<html lang="en">
+        <h1 id="Vue3-0新特性"><a href="#Vue3-0新特性" class="headerlink" title="Vue3.0新特性"></a>Vue3.0新特性</h1><p><code>Vue3.0</code>的设计目标可以概括为体积更小、速度更快、加强<code>TypeScript</code>支持、加强<code>API</code>设计一致性、提高自身可维护性、开放更多底层功能。</p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>从<code>Vue2</code>到<code>Vue3</code>在一些比较重要的方面的详细对比。</p>
+<span id="more"></span>
+<h3 id="生命周期的变化"><a href="#生命周期的变化" class="headerlink" title="生命周期的变化"></a>生命周期的变化</h3><ul>
+<li><code>Vue2 -&gt; Vue3</code></li>
+<li><code>beforeCreate -&gt; setup</code></li>
+<li><code>created -&gt; setup</code></li>
+<li><code>beforeMount -&gt; onBeforeMount</code></li>
+<li><code>mounted -&gt; onMounted</code></li>
+<li><code>beforeUpdate -&gt; onBeforeUpdate</code></li>
+<li><code>updated -&gt; onUpdated</code></li>
+<li><code>beforeDestroy -&gt; onBeforeUnmount</code></li>
+<li><code>destroyed -&gt; onUnmounted</code></li>
+<li><code>activated -&gt; onActivated</code></li>
+<li><code>deactivated -&gt; onDeactivated</code></li>
+<li><code>errorCaptured -&gt; onErrorCaptured</code></li>
+<li><code>renderTracked -&gt; onRenderTracked</code></li>
+<li><code>renderTriggered -&gt; onRenderTriggered</code></li>
+</ul>
+<p>在这里主要是增加了<code>setup</code>这个生命周期，而其他的生命周期都是以<code>API</code>的形式调用，实际上随着<code>Composition API</code>的引入，我们访问这些钩子函数的方式已经改变，我们所有的生命周期都应该写在<code>setup</code>中，此方法我们应该实现大多数组件代码，并处理响应式，生命周期钩子函数等。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; onBeforeMount, </span><br><span class="line">    onMounted, </span><br><span class="line">    onBeforeUpdate, </span><br><span class="line">    onUpdated, </span><br><span class="line">    onBeforeUnmount, </span><br><span class="line">    onUnmounted, </span><br><span class="line">    onActivated, </span><br><span class="line">    onDeactivated, </span><br><span class="line">    onErrorCaptured, </span><br><span class="line">    onRenderTracked,  </span><br><span class="line">    onRenderTriggered</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="title function_">onBeforeMount</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// ... </span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="title function_">onMounted</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// ... </span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="title function_">onBeforeUpdate</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// ... </span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="title function_">onUpdated</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// ... </span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="title function_">onBeforeUnmount</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// ... </span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="title function_">onUnmounted</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// ... </span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="title function_">onActivated</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// ... </span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="title function_">onDeactivated</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// ... </span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="title function_">onErrorCaptured</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// ... </span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="title function_">onRenderTracked</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// ... </span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="title function_">onRenderTriggered</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// ... </span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQuery 发送 AJAX 请求</title>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
+<h3 id="使用proxy代替defineProperty"><a href="#使用proxy代替defineProperty" class="headerlink" title="使用proxy代替defineProperty"></a>使用proxy代替defineProperty</h3><p><code>Vue2</code>是通过数据劫持的方式来实现响应式的，其中最核心的方法便是通过<code>Object.defineProperty()</code>来实现对属性的劫持，该方法允许精确地添加或修改对象的属性，对数据添加属性描述符中的<code>getter</code>与<code>setter</code>存取描述符实现劫持。<code>Vue2</code>之所以只能兼容到<code>IE8</code>主要就是因为<code>defineProperty</code>无法兼容<code>IE8</code>，其他浏览器也会存在轻微兼容问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">__x</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(obj, <span class="string">&quot;x&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">set</span>: <span class="keyword">function</span>(<span class="params">x</span>)&#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;watch&quot;</span>); <span class="variable language_">this</span>.<span class="property">__x</span> = x; &#125;,</span><br><span class="line">    <span class="attr">get</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123; <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">__x</span>; &#125;</span><br><span class="line">&#125;);</span><br><span class="line">obj.<span class="property">x</span> = <span class="number">11</span>; <span class="comment">// watch</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">x</span>); <span class="comment">// 11</span></span><br></pre></td></tr></table></figure>
+<p><code>Vue3</code>使用<code>Proxy</code>实现数据劫持，<code>Object.defineProperty</code>只能监听属性，而<code>Proxy</code>能监听整个对象，通过调用<code>new Proxy()</code>，可以创建一个代理用来替代另一个对象被称为目标，这个代理对目标对象进行了虚拟，因此该代理与该目标对象表面上可以被当作同一个对象来对待。代理允许拦截在目标对象上的底层操作，而这原本是<code>Js</code>引擎的内部能力，拦截行为使用了一个能够响应特定操作的函数，即通过<code>Proxy</code>去对一个对象进行代理之后，我们将得到一个和被代理对象几乎完全一样的对象，并且可以从底层实现对这个对象进行完全的监控。<code>Proxy</code>对象是<code>ES6</code>引入的新特性，<code>Vue3</code>放弃使用了<code>Object.defineProperty</code>，而选择了使用更快的原生<code>Proxy</code>，即是在兼容性方面更偏向于现代浏览器。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> target = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(target, &#123;</span><br><span class="line">    <span class="attr">set</span>: <span class="keyword">function</span>(<span class="params">target, key, value, receiver</span>)&#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;watch&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">set</span>(target, key, value, receiver);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">get</span>: <span class="keyword">function</span>(<span class="params">target, key, receiver</span>)&#123; </span><br><span class="line">        <span class="keyword">return</span> target[key];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">proxy.<span class="property">a</span> = <span class="number">11</span>; <span class="comment">// watch</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target); <span class="comment">// &#123; a: 11 &#125;</span></span><br></pre></td></tr></table></figure>
 
-<body>
-    <div class="container">
-        <h2 class="page-header">jQuery发送AJAX请求</h2>
-        <button class="btn btn-primary">GET</button>
-        <button class="btn btn-danger">POST</button>
-        <button class="btn btn-info">通用型方法ajax</button>
-    </div>
-    <script>
-        $('button').eq(0).click(function () {
-            $.get('http://127.0.0.1:8000/jquery-server', { a: 100, b: 50 }, function (data) {
-                console.log(data);
-            }, 'json')
-        })
-        $('button').eq(1).click(function () {
-            $.post('http://127.0.0.1:8000/jquery-server', { a: 100, b: 50 }, function (data) {
-                console.log(data);
-            })
-        })
+<h3 id="diff算法的提升"><a href="#diff算法的提升" class="headerlink" title="diff算法的提升"></a>diff算法的提升</h3><p><code>diff</code>算法的基础是<code>Virtual DOM</code>，<code>Virtual DOM</code>是一棵以<code>JavaScript</code>对象作为基础的树，每一个节点称为<code>VNode</code>，用对象属性来描述节点，实际上它是一层对真实<code>DOM</code>的抽象，最终可以通过渲染操作使这棵树映射到真实环境上，简单来说<code>Virtual DOM</code>就是一个<code>Js</code>对象，用以描述整个文档。<br><code>Vue2</code>框架通过深度递归遍历新旧两个虚拟<code>DOM</code>树，并比较每个节点上的每个属性，来确定实际<code>DOM</code>的哪些部分需要更新，由于现代<code>JavaScript</code>引擎执行的高级优化，这种有点暴力的算法通常非常快速，但是<code>DOM</code>的更新仍然涉及许多不必要的<code>CPU</code>工作。<br>在这里引用尤大的描述，为了实现这一点，编译器和运行时需要协同工作：编译器分析模板并生成带有优化提示的代码，而运行时尽可能获取提示并采用快速路径，这里有三个主要的优化：</p>
+<ul>
+<li>首先，在<code>DOM</code>树级别，我们注意到，在没有动态改变节点结构的模板指令(例如<code>v-if</code>和<code>v-for</code>)的情况下，节点结构保持完全静态，如果我们将一个模板分成由这些结构指令分隔的嵌套块，则每个块中的节点结构将再次完全静态，当我们更新块中的节点时，我们不再需要递归遍历<code>DOM</code>树，该块内的动态绑定可以在一个平面数组中跟踪，这种优化通过将需要执行的树遍历量减少一个数量级来规避虚拟<code>DOM</code>的大部分开销。</li>
+<li>其次，编译器积极地检测模板中的静态节点、子树甚至数据对象，并在生成的代码中将它们提升到渲染函数之外，这样可以避免在每次渲染时重新创建这些对象，从而大大提高内存使用率并减少垃圾回收的频率。</li>
+<li>第三，在元素级别，编译器还根据需要执行的更新类型，为每个具有动态绑定的元素生成一个优化标志，例如具有动态类绑定和许多静态属性的元素将收到一个标志，提示只需要进行类检查，运行时将获取这些提示并采用专用的快速路径。</li>
+</ul>
+<h3 id="TypeScript的支持"><a href="#TypeScript的支持" class="headerlink" title="TypeScript的支持"></a>TypeScript的支持</h3><p><code>Vue2</code>中使用的都是<code>Js</code>，其本身并没有类型系统这个概念，现如今<code>TypeScript</code>异常火爆，对于规模很大的项目，没有类型声明，后期维护和代码的阅读都是头疼的事情，虽然<code>Vue2</code>实际上也是可以使用<code>TS</code>的，但是支持并不算特别完美，此外<code>Vue2</code>的源码也是使用<code>Facebook</code>的<code>Flow</code>做类型检查。<br>最终<code>Vue3</code>借鉴了<code>React Hook</code>实现了更自由的编程方式，提出了<code>Composition API</code>，<code>Composition API</code>不需要通过指定一长串选项来定义组件，而是允许用户像编写函数一样自由地表达、组合和重用有状态的组件逻辑，同时提供出色的<code>TypeScript</code>支持。</p>
+<h3 id="打包体积变化"><a href="#打包体积变化" class="headerlink" title="打包体积变化"></a>打包体积变化</h3><p><code>Vue2</code>官方说明运行时打包<code>23k</code>，但这只是没安装依赖的时候，随着依赖包和框架特性的增多，有时候不必要的，未使用的代码文件都被打包了进去，所以后期项目大了，打包文件会特别多还很大。<br>在<code>Vue3</code>中，通过将大多数全局<code>API</code>和内部帮助程序移动到<code>JavaScript</code>的<code>module.exports</code>属性上实现这一点，这允许现代模式下的<code>module bundler</code>能够静态地分析模块依赖关系，并删除与未使用的<code>module.exports</code>属性相关的代码，模板编译器还生成了对<code>Tree Shaking</code>摇树优化友好的代码，只有在模板中实际使用某个特性时，该代码才导入该特性的帮助程序，尽管增加了许多新特性，但<code>Vue3</code>被压缩后的基线大小约为<code>10KB</code>，不到<code>Vue2</code>的一半。</p>
+<h2 id="非兼容变更"><a href="#非兼容变更" class="headerlink" title="非兼容变更"></a>非兼容变更</h2><p><code>Vue3</code>相对于<code>Vue2</code>的非兼容的变更概括，详情可以查阅<code>https://v3.cn.vuejs.org/guide/migration/introduction.html</code>。</p>
+<h3 id="全局API"><a href="#全局API" class="headerlink" title="全局API"></a>全局API</h3><ul>
+<li>全局<code>Vue API</code>已更改为使用应用程序实例。</li>
+<li>全局和内部<code>API</code>已经被重构为可<code>tree-shakable</code>。</li>
+</ul>
+<h3 id="模板指令"><a href="#模板指令" class="headerlink" title="模板指令"></a>模板指令</h3><ul>
+<li>组件上<code>v-model</code>用法已更改，替换<code>v-bind.sync</code>。</li>
+<li><code>&lt;template v-for&gt;</code>和非<code>v-for</code>节点上<code>key</code>用法已更改。</li>
+<li>在同一元素上使用的<code>v-if</code>和<code>v-for</code>优先级已更改。</li>
+<li><code>v-bind=&quot;object&quot;</code>现在排序敏感。</li>
+<li><code>v-on:event.native</code>修饰符已移除。</li>
+<li><code>v-for</code>中的<code>ref</code>不再注册<code>ref</code>数组。</li>
+</ul>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><ul>
+<li>只能使用普通函数创建功能组件。</li>
+<li><code>functional</code>属性在<code>SFC</code>单文件组件<code>&lt;template&gt;</code>和<code>functional</code>组件选项被抛弃。</li>
+<li>异步组件现在需要<code>defineAsyncComponent</code>方法来创建。</li>
+<li>组件事件现在需要在<code>emits</code>选项中声明。</li>
+</ul>
+<h3 id="渲染函数"><a href="#渲染函数" class="headerlink" title="渲染函数"></a>渲染函数</h3><ul>
+<li>渲染函数<code>API</code>改变。</li>
+<li><code>$scopedSlots property</code>已删除，所有插槽都通过<code>$slots</code>作为函数暴露。</li>
+<li><code>$listeners</code>被移除或整合到<code>$attrs</code>。</li>
+<li><code>$attrs</code>现在包含<code>class and style attribute</code>。</li>
+</ul>
+<h3 id="自定义元素"><a href="#自定义元素" class="headerlink" title="自定义元素"></a>自定义元素</h3><ul>
+<li>自定义元素白名单现在已经在编译时执行。</li>
+<li>对特殊的<code>is prop</code>的使用只严格限制在被保留的<code>&lt;component&gt;</code>标记中。</li>
+</ul>
+<h3 id="其他小改变"><a href="#其他小改变" class="headerlink" title="其他小改变"></a>其他小改变</h3><ul>
+<li><code>destroyed</code>生命周期选项被重命名为<code>unmounted</code>。</li>
+<li><code>beforeDestroy</code>生命周期选项被重命名为<code>beforeUnmount</code>。</li>
+<li><code>default prop</code>工厂函数不再可以访问<code>this</code>上下文。</li>
+<li>自定义指令<code>API</code>已更改为与组件生命周期一致。</li>
+<li><code>data</code>选项应始终被声明为一个函数。</li>
+<li>来自<code>mixin</code>的<code>data</code>选项现在为浅合并。</li>
+<li><code>Attribute</code>强制策略已更改。</li>
+<li>一些过渡<code>class</code>被重命名。</li>
+<li><code>&lt;TransitionGroup&gt;</code>不再默认渲染包裹元素。</li>
+<li>当侦听一个数组时，只有当数组被替换时，回调才会触发，如果需要在变更时触发，则需要指定<code>deep</code>选项。</li>
+<li>没有特殊指令的标记<code>v-if/else-if/else</code>、<code>v-for</code>、<code>v-slot</code>的<code>&lt;template&gt;</code>现在被视为普通元素，并将生成原生的<code>&lt;template&gt;</code>元素，而不是渲染其内部内容。</li>
+<li>在<code>Vue2</code>中，应用根容器的<code>outerHTML</code>将替换为根组件模板，如果根组件没有模板&#x2F;渲染选项，则最终编译为模板，<code>Vue3</code>现在使用应用容器的<code>innerHTML</code>，这意味着容器本身不再被视为模板的一部分。</li>
+</ul>
+<h3 id="移除API"><a href="#移除API" class="headerlink" title="移除API"></a>移除API</h3><ul>
+<li><code>keyCode</code>支持作为<code>v-on</code>的修饰符。</li>
+<li><code>$on</code>、<code>$off</code>和<code>$once</code>实例方法</li>
+<li>过滤器方法，建议用计算属性或方法代替过滤器。</li>
+<li>内联模板<code>attribute</code>。</li>
+<li><code>$children</code>实例<code>property</code>。</li>
+<li><code>$destroy</code>实例方法，用户不应再手动管理单个<code>Vue</code>组件的生命周期。</li>
+</ul>
 
-
-        $('button').eq(2).click(function () {
-            $.ajax({
-                url: 'http://127.0.0.1:8000/jquery-server',
-                data: { a: 100, b: 50 },
-                type: 'GET',
-                dataType: 'json', //响应体结果
-                success: function (data) { //成功回调
-                    console.log(data);
-                },
-                timeout: 2000,
-                error: function () {
-                    console.log('出错了');
-
-                },
-                //头信息
-                headers: {
-                    c: 300,
-                    d: 100
-                }
-
-            });
-        });
-    </script>
-</body>
-
-</html>
       
 
       
@@ -265,7 +310,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/AJAX/client.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/03/23/6-VUE-3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,6 +322,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2022/03/23/6-VUE-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Vue-2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/20/5-AJAX/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AJAX、跨域</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -298,7 +362,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">jQuery发送AJAX请求</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue3-0%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">Vue3.0新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">1.1.1.</span> <span class="toc-text">生命周期的变化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8proxy%E4%BB%A3%E6%9B%BFdefineProperty"><span class="toc-number">1.1.2.</span> <span class="toc-text">使用proxy代替defineProperty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#diff%E7%AE%97%E6%B3%95%E7%9A%84%E6%8F%90%E5%8D%87"><span class="toc-number">1.1.3.</span> <span class="toc-text">diff算法的提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TypeScript%E7%9A%84%E6%94%AF%E6%8C%81"><span class="toc-number">1.1.4.</span> <span class="toc-text">TypeScript的支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E4%BD%93%E7%A7%AF%E5%8F%98%E5%8C%96"><span class="toc-number">1.1.5.</span> <span class="toc-text">打包体积变化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E5%85%BC%E5%AE%B9%E5%8F%98%E6%9B%B4"><span class="toc-number">1.2.</span> <span class="toc-text">非兼容变更</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80API"><span class="toc-number">1.2.1.</span> <span class="toc-text">全局API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E6%8C%87%E4%BB%A4"><span class="toc-number">1.2.2.</span> <span class="toc-text">模板指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6"><span class="toc-number">1.2.3.</span> <span class="toc-text">组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.4.</span> <span class="toc-text">渲染函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E7%B4%A0"><span class="toc-number">1.2.5.</span> <span class="toc-text">自定义元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%B0%8F%E6%94%B9%E5%8F%98"><span class="toc-number">1.2.6.</span> <span class="toc-text">其他小改变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4API"><span class="toc-number">1.2.7.</span> <span class="toc-text">移除API</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -340,7 +404,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
